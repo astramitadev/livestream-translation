@@ -1,7 +1,8 @@
 import os
 import tempfile
 
-from fastapi import FastAPI, Request, Form
+from fastapi import FastAPI, Request
+
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 
@@ -43,8 +44,10 @@ async def index(request: Request):
     return templates.TemplateResponse("index.html", {"request": request, "translated_text": None, "original_text": None})
 
 
-@app.post("/translate", response_class=HTMLResponse)
-async def translate(request: Request, url: str = Form(...)):
+@app.get("/translate")
+async def translate(request: Request):
+    url = request.query_params.get("url")
+
     """
     Download the audio from the provided YouTube/Facebook URL, transcribe it
     using a CPU-based Whisper model, translate the Spanish text to English,
