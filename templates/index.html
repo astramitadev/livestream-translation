@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Livestream Translation Demo</title>
-  <link rel="stylesheet" href="/static/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Translation Demo</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Livestream Translation Demo</h1>
-    <p>Enter a YouTube or Facebook livestream URL to receive live English subtitles from Spanish audio.</p>
-    <input type="text" id="stream-url" placeholder="https://www.youtube.com/watch?v=..." style="width:100%; padding:0.5rem;">
-    <button id="start-btn" style="margin-top:1rem; padding:0.5rem 1rem;">Start Translation</button>
-
-    <div id="subtitles" class="subtitles"></div>
-  </div>
-
-  <script src="/static/app.js"></script>
+    <div class="container">
+        <h1>Video Translation Demo</h1>
+        <p>Enter a YouTube or Facebook video URL to transcribe Spanish audio and translate it to English.</p>
+        <form action="/translate" method="post">
+            <input type="text" name="url" placeholder="https://www.youtube.com/watch?v=..." style="width:100%; padding:0.5rem;" />
+            <button type="submit" style="margin-top:1rem; padding:0.5rem 1rem;">Translate</button>
+        </form>
+        {% if original_text %}
+        <h2>Spanish Transcript</h2>
+        <p>{{ original_text }}</p>
+        {% endif %}
+        {% if translated_text %}
+        <h2>English Translation</h2>
+        <p>{{ translated_text }}</p>
+        {% endif %}
+    </div>
 </body>
 </html>
