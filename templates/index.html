@@ -10,10 +10,11 @@
     <div class="container">
         <h1>Video Translation Demo</h1>
         <p>Enter a YouTube or Facebook video URL to transcribe Spanish audio and translate it to English.</p>
-        <form action="/translate" method="post">
-            <input type="text" name="url" placeholder="https://www.youtube.com/watch?v=..." style="width:100%; padding:0.5rem;" />
-            <button type="submit" style="margin-top:1rem; padding:0.5rem 1rem;">Translate</button>
-        </form>
+       <form action="/translate" method="get">
+  <input name="url" />
+  <button type="submit">Translate</button>
+</form>
+
         {% if original_text %}
         <h2>Spanish Transcript</h2>
         <p>{{ original_text }}</p>
