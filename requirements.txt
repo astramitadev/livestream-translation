@@ -3,10 +3,11 @@
  yt-dlp
  transformers
 -https://download.pytorch.org/whl/cpu/torch-2.6.0%2Bcpu-cp310-cp310-linux_x86_64.whl
-+torch @ https://download.pytorch.org/whl/cpu/torch-2.6.0+cpu-cp310-cp310-linux_x86_64.whl
++ torch @ https://download.pytorch.org/whl/cpu/torch-2.6.0+cpu-cp310-cp310-linux_x86_64.whl
  sentencepiece
  git+https://github.com/openai/whisper.git
  sacremoses
+
 
 
 
