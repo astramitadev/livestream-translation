@@ -5,3 +5,6 @@ transformers
 sentencepiece
 faster-whisper
 ffmpeg-binaries
+
+jinja2
+
